@@ -4,19 +4,19 @@ services:
   app:
     container_name: nodeapp
     build: ./app
-    image: rrose666/eng84_sparta_app
+    image: rrose666/eng84_sparta_app:v1
     depends_on:
-      - mongodb
+      - database
     environment:
       DB_HOST: mongodb://mongodb:27017/posts
     ports:
       - 3000:3000
 
-  mongo:
+  database:
     image: mongo
     restart: always
     container_name: mongodb
-    image: rrose666/mongod
-    build: ./mongod
+    image: mongo
+    # build: ./mongod
     ports: 
       - "27017:27017"
