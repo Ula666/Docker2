@@ -7,6 +7,7 @@ FROM node:6
 WORKDIR /usr/src/app
 # COPY everything or dependencies required
 COPY package*.json ./
+#COPY app/
 # run npm install after we have copied the depencies
 RUN npm install
 COPY . .

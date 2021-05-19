@@ -1,0 +1,22 @@
+
+version: "3.9"
+services:
+  app:
+    container_name: nodeapp
+    build: ./app
+    image: rrose666/eng84_sparta_app
+    depends_on:
+      - mongodb
+    environment:
+      DB_HOST: mongodb://mongodb:27017/posts
+    ports:
+      - 3000:3000
+
+  mongo:
+    image: mongo
+    restart: always
+    container_name: mongodb
+    image: rrose666/mongod
+    build: ./mongod
+    ports: 
+      - "27017:27017"
